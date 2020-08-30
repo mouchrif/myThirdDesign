@@ -1,0 +1,94 @@
+.sidebar{
+    background-color: $color-primary;
+    grid-column: sidebar-start / sidebar-end;
+    grid-row: 1 / -1;
+    display: flex;
+    justify-content: center;
+    @media only screen and (max-width:$bp-medium){
+        grid-column: full-start / full-end;
+        grid-row: 1 / 2;
+        justify-content: flex-end;
+        align-items: center;
+    }
+    &__btn{
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        border: none;
+        border-radius: 0;
+        outline:none;
+        background-color:transparent;
+        width: 5rem;
+        height: 5rem;
+        margin-top: 2rem;
+        position: relative;
+        cursor: pointer;
+        @media only screen and (max-width:$bp-medium){
+            margin-top: 0;
+            margin-right: 2rem;
+        }
+        & > span{
+            position: absolute;
+            display: block;
+            width: 3rem;
+            height: 4px;
+            border-radius: 100px;
+            background-color:$color-grey-light-1;
+        }
+        & span:nth-child(1){
+            top:50%;
+            opacity:1;
+            transition: opacity .4s ;
+        }
+        & span:nth-child(2){
+            top:35%;
+            transform:rotate(0deg);
+            transition: transform .4s, top .4s .4s ;
+        }
+        & span:nth-child(3){
+            top:64%;
+            transform:rotate(0deg);
+            transition: transform .4s, top .4s .4s ;
+        }
+        
+        &:focus span:nth-child(1){
+            opacity: 0;
+        }
+        &:focus span:nth-child(2){
+            top:50%;
+            transform:rotate(45deg); 
+            transition: top .4s .1s, transform .4s .4s ;
+        }
+        &:focus span:nth-child(3){
+            top:50%;
+            transform:rotate(135deg);
+            transition: top .4s .1s, transform .4s .4s ; 
+        }
+    }
+
+        /*
+        /////////////////////////////////////////////////////////////////
+        border: none;
+        border-radius: 0;
+        background-color:$color-grey-light-1;
+        width: 4.5rem;
+        height: 2px;
+        margin-top: 4rem;
+        cursor: pointer;
+        &::before,
+        &::after{
+            content: "";
+            width: 4.5rem;
+            height: 2px;
+            background-color:$color-grey-light-1;
+            display: block;
+        }
+        &::before{
+            transform: translateY(-1.5rem);
+        }
+        &::after{
+            transform: translateY(calc(1.5rem - 2px));
+        }
+        //////////////////////////////////////////////////////////////////////
+        */
+}
